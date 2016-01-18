@@ -1,4 +1,4 @@
-(ns solsort.apps.apps
+(ns solsort.apps.applist
   (:require-macros  [cljs.core.async.macros :refer  [go go-loop alt!]])
   (:require
     [solsort.util :refer  [<ajax <seq<! js-seq]]
@@ -51,11 +51,11 @@
            title (first (:children (:name config-elems)))  
            date (first (:children (:date config-elems)))  
            description (first (:children (:description config-elems)))  
-           icon (str id "/"  (:src (:attrs (:icon config-elems))))
+           icon (str "/" id "/"  (:src (:attrs (:icon config-elems))))
            orientation (:value (:attrs (get config-elems "orientation")))
            path ()]
     [:a
-     {:href (str id "/index.html")
+     {:href (str "/" id "/index.html")
       :style
       {:text-color :black
        :display :block
@@ -93,9 +93,8 @@
     [:li "Tilfredshedsgaranti - jeg véd, at jeg leverer. Hvis du ikke er fuldt tilfreds ved sprint-afslutning, er der fuld returret."]]
    [:h2 "Kontakt mig hvis du har et interessant projekt eller behov for softwareudvikling."]
    ]
-  [:div
-   [:h1 "App-list:"]
-   
+  [:div 
+   [:h1 {:style {:text-align :center}} "App-list:"]
    ]
   
   )
